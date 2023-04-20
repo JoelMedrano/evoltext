@@ -1,0 +1,4 @@
+/* VER EL ICONO EN MODO OSCURO */
+.dark-theme .main-sidebar-header .header-logo .desktop-dark {
+    display: block !important;
+}
