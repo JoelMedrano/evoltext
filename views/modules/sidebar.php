@@ -2,10 +2,10 @@
     <aside class="app-sidebar">
         <div class="main-sidebar-header active">
             <a class="header-logo active" href="">
-                <img src="assets/img/brand/logo.png" class="main-logo  desktop-logo" alt="logo">
-                <img src="assets/img/brand/favicon.png" class="main-logo  desktop-dark" alt="logo">
-                <img src="assets/img/brand/favicon.png" class="main-logo  mobile-logo" alt="logo">
-                <img src="assets/img/brand/favicon-white.png" class="main-logo  mobile-dark" alt="logo">
+                <img src="views/assets/img/brand/logo.png" class="main-logo  desktop-logo" alt="logo">
+                <img src="views/assets/img/brand/favicon.png" class="main-logo  desktop-dark" alt="logo">
+                <img src="views/assets/img/brand/favicon.png" class="main-logo  mobile-logo" alt="logo">
+                <img src="views/assets/img/brand/favicon-white.png" class="main-logo  mobile-dark" alt="logo">
             </a>
         </div>
         <div class="main-sidemenu">
