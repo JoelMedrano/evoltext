@@ -47,6 +47,8 @@ foreach ($routesArray as $key => $value) {
     <link href="views/assets/css/skin-modes.css" rel="stylesheet" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="views/assets/custom/template/template.css">
+    <!-- Material Preloader -->
+    <link rel="stylesheet" href="views/assets/plugins/material-preloader/material-preloader.css">
 
     <!------------->
     <!-- SCRIPTS -->
@@ -82,6 +84,14 @@ foreach ($routesArray as $key => $value) {
     <!-- INTERNAL Select2 js -->
     <script src="views/assets/plugins/select2/js/select2.full.min.js"></script>
     <script src="views/assets/js/select2.js"></script>
+    <!-- Material Preloader -->
+    <!-- https://www.jqueryscript.net/loading/Google-Inbox-Style-Linear-Preloader-Plugin-with-jQuery-CSS3.html -->
+    <script src="views/assets/plugins/material-preloader/material-preloader.js"></script>
+    <!-- Sweet Alert -->
+    <!-- https://sweetalert2.github.io/ -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="views/assets/custom/alerts/alerts.js"></script>
 
 </head>
 
@@ -93,7 +103,7 @@ foreach ($routesArray as $key => $value) {
     </div>
     <!-- /Loader -->
 
-    <?php //include "pages/login/login.php"
+    <?php include "pages/login/login.php"
     ?>
 
     <!-- Page -->
@@ -101,13 +111,16 @@ foreach ($routesArray as $key => $value) {
 
         <div class="main-content app-content">
             <!-- main-header -->
-            <?php include "modules/navbar.php" ?>
+            <?php //include "modules/navbar.php" 
+            ?>
 
             <!-- main-sidebar -->
-            <?php include "modules/sidebar.php" ?>
+            <?php //include "modules/sidebar.php" 
+            ?>
 
             <!-- main-content -->
-            <?php include "pages/home/dashboard1.php" ?>
+            <?php //include "pages/home/dashboard1.php" 
+            ?>
 
             <?php //include "pages/404/404.php"
             ?>
@@ -115,7 +128,7 @@ foreach ($routesArray as $key => $value) {
         </div>
 
         <!-- Footer opened -->
-        <?php include "modules/footer.php"
+        <?php //include "modules/footer.php"
         ?>
 
     </div>
