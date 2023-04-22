@@ -97,42 +97,52 @@ foreach ($routesArray as $key => $value) {
 
 <body id="mainBody" class="ltr main-body app sidebar-mini">
 
+    <?php
+
+    if (!isset($_SESSION["user"])) {
+
+        include "pages/login/login.php";
+
+        echo '</body></head>';
+
+        return;
+    }
+
+    ?>
+
     <!-- Loader -->
     <div id="global-loader">
         <img src="views/assets/img/loader.svg" class="loader-img" alt="Loader">
     </div>
-    <!-- /Loader -->
 
-    <?php include "pages/login/login.php"
-    ?>
+    <?php if (isset($_SESSION["user"])) : ?>
 
-    <!-- Page -->
-    <div class="page">
+        <!-- Page -->
+        <div class="page">
 
-        <div class="main-content app-content">
-            <!-- main-header -->
-            <?php //include "modules/navbar.php" 
-            ?>
+            <div class="main-content app-content">
+                <!-- main-header -->
+                <?php include "modules/navbar.php" ?>
 
-            <!-- main-sidebar -->
-            <?php //include "modules/sidebar.php" 
-            ?>
+                <!-- main-sidebar -->
+                <?php include "modules/sidebar.php" ?>
 
-            <!-- main-content -->
-            <?php //include "pages/home/dashboard1.php" 
-            ?>
+                <!-- main-content -->
+                <?php include "pages/home/dashboard1.php" ?>
 
-            <?php //include "pages/404/404.php"
+                <?php //include "pages/404/404.php"
+                ?>
+
+            </div>
+
+            <!-- Footer opened -->
+            <?php include "modules/footer.php"
             ?>
 
         </div>
 
-        <!-- Footer opened -->
-        <?php //include "modules/footer.php"
-        ?>
+    <?php endif ?>
 
-    </div>
-    <!-- End Page -->
 
     <!-- Back-to-top -->
     <a href="#top" id="back-to-top"><i class="las la-arrow-up"></i></a>

@@ -24,9 +24,34 @@ class AdminsController
 
                 );
                 $response = CurlController::request($url, $method, $fields);
-                echo '<pre>';
-                print_r($response);
-                echo '</pre>';
+
+                if ($response->status == 200) {
+
+                    //*Validamos que este activo
+                    if ($response->results[0]->state_user != "46") {
+
+                        echo ' <div class="alert alert-danger">You do not have permissions to access</div>';
+                        return;
+                    }
+
+                    //*Creamos las variables de session
+                    $_SESSION["user"] = $response->results[0];
+
+                    echo '<script>
+                        fncFormatInputs();
+                        localStorage.setItem("token_user", "' . $response->results[0]->token_user . '");
+                        window.location = "' . $_SERVER["REQUEST_URI"] . '"
+					</script>';
+                } else {
+
+                    echo '<script>
+                        fncFormatInputs();
+                        matPreloader("off");
+                        fncSweetAlert("close", "", "");                
+                    </script> 
+
+                    <div class="alert alert-danger">' . $response->results . '</div>';
+                }
             } else {
 
                 echo '<script>
