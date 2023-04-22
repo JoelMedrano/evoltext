@@ -1,6 +1,4 @@
-/*=============================================
-validar si es celular - tablet o celular
-=============================================*/
+//* validar si es celular - tablet o celular
 document.addEventListener("DOMContentLoaded", function () {
     const bodyElement = document.getElementById("mainBody");
 
@@ -21,9 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", updateBodyClass);
 });
 
-/*=============================================
-Validacion desde BOOTSTRAP 5
-=============================================*/
+//* Validacion desde BOOTSTRAP 5
 (function () {
     "use strict";
 
@@ -47,9 +43,7 @@ Validacion desde BOOTSTRAP 5
     });
 })();
 
-/*=============================================
-Función para validar formulario
-=============================================*/
+//* Función para validar formulario
 function validateJS(event, type) {
     var pattern;
 
@@ -89,3 +83,8 @@ function validateJS(event, type) {
             .html("Field syntax error");
     }
 }
+
+//* Activación de Bootstrap Switch
+$("input[data-bootstrap-switch]").each(function () {
+    $(this).bootstrapSwitch("state", $(this).prop("checked"));
+});
