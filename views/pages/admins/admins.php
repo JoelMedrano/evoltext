@@ -3,7 +3,7 @@
 
         <div class="breadcrumb-header justify-content-between">
             <div class="left-content">
-                <span class="main-content-title mg-b-0 mg-b-lg-1">DASHBOARD</span>
+                <span class="main-content-title mg-b-0 mg-b-lg-1">Admins</span>
             </div>
             <div class="justify-content-center mt-2">
                 <ol class="breadcrumb">
@@ -40,7 +40,7 @@
 
             if ($routesArray[2] == "new" || $routesArray[2] == "edit") {
 
-                include "actions/" . $routesArray[2] . ".php";
+                include "actions/new.php";
             }
         } else {
 

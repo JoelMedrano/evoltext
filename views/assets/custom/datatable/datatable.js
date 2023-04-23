@@ -5,7 +5,7 @@ function execDatatable(text) {
 
     if ($(".tableAdmins").length > 0) {
         var url =
-            "ajax/data-admins.php?text=" +
+            "ajax/admins/data-admins.php?text=" +
             text +
             "&between1=" +
             $("#between1").val() +
@@ -17,13 +17,20 @@ function execDatatable(text) {
         var columns = [
             { data: "id_user" },
             { data: "picture_user", orderable: false, search: false },
-            { data: "displayname_user" },
+            { data: "name_user" },
             { data: "username_user" },
             { data: "email_user" },
-            { data: "country_user" },
-            { data: "city_user" },
+            { data: "postal_user" },
+            { data: "id_company_user" },
+            { data: "rol_user" },
             { data: "date_created_user" },
             { data: "actions", orderable: false },
+        ];
+
+        var order = [[0, "desc"]];
+        var aLengthMenu = [
+            [20, 50, 100, 500, 1000],
+            [20, 50, 100, 500, 1000],
         ];
 
         page = "admins";
@@ -33,14 +40,11 @@ function execDatatable(text) {
     var adminsTable = $("#adminsTable").DataTable({
         responsive: true,
         lengthChange: true,
-        aLengthMenu: [
-            [10, 50, 100, 500, 1000],
-            [10, 50, 100, 500, 1000],
-        ],
+        aLengthMenu: aLengthMenu,
         autoWidth: false,
         processing: true,
         serverSide: true,
-        order: [[0, "desc"]],
+        order: order,
         ajax: {
             url: url,
             type: "POST",
@@ -98,6 +102,14 @@ function execDatatable(text) {
                     .appendTo("#adminsTable_wrapper .col-md-6:eq(0)");
             }, 100);
         });
+    } else if (text == "html") {
+        setTimeout(function () {
+            $(document).ready(function () {
+                // Ocultar los botones de la tabla
+                var buttonsContainer = adminsTable.buttons().container();
+                buttonsContainer.hide();
+            });
+        }, 1000);
     }
 }
 
@@ -105,7 +117,14 @@ execDatatable("html");
 
 //* Ejecutar reporte
 function reportActive(event) {
-    if (event.target.checked) {
+    const button = event.target;
+    const isChecked = button.getAttribute("data-checked") === "true";
+
+    if (!isChecked) {
+        button.setAttribute("data-checked", "true");
+        button.classList.remove("btn-primary");
+        button.classList.add("btn-dark");
+
         $("#adminsTable").dataTable().fnClearTable();
         $("#adminsTable").dataTable().fnDestroy();
 
@@ -113,6 +132,10 @@ function reportActive(event) {
             execDatatable("flat");
         }, 100);
     } else {
+        button.setAttribute("data-checked", "false");
+        button.classList.remove("btn-dark");
+        button.classList.add("btn-primary");
+
         $("#adminsTable").dataTable().fnClearTable();
         $("#adminsTable").dataTable().fnDestroy();
 
@@ -121,6 +144,8 @@ function reportActive(event) {
         }, 100);
     }
 }
+
+document.getElementById("toggleReport").addEventListener("click", reportActive);
 
 //* Rango de fechas
 $("#daterange-btn").daterangepicker(
@@ -166,26 +191,6 @@ $("#daterange-btn").daterangepicker(
                 moment().subtract(1, "year").endOf("year"),
             ],
         },
-        // ranges: {
-        //     Today: [moment(), moment()],
-        //     Yesterday: [
-        //         moment().subtract(1, "days"),
-        //         moment().subtract(1, "days"),
-        //     ],
-        //     "Last 7 Days": [moment().subtract(6, "days"), moment()],
-        //     "Last 30 Days": [moment().subtract(29, "days"), moment()],
-        //     "This Month": [moment().startOf("month"), moment().endOf("month")],
-        //     "Last Month": [
-        //         moment().subtract(1, "month").startOf("month"),
-        //         moment().subtract(1, "month").endOf("month"),
-        //     ],
-        //     "This Year": [moment().startOf("year"), moment().endOf("year")],
-        //     "last Year": [
-        //         moment().subtract(1, "year").startOf("year"),
-        //         moment().subtract(1, "year").endOf("year"),
-        //     ],
-        // },
-
         startDate: moment($("#between1").val()),
         endDate: moment($("#between2").val()),
     },

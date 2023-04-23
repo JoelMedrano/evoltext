@@ -30,6 +30,8 @@ foreach ($routesArray as $key => $value) {
     <!-- Title -->
     <title> Evoltext </title>
 
+    <base href="<?php echo TemplateController::path() ?>">
+
     <!------------->
     <!-- LINKS -->
     <!------------->
@@ -52,6 +54,7 @@ foreach ($routesArray as $key => $value) {
     <!-- INTERNAL Switcher css -->
     <link href="views/assets/switcher/css/switcher.css" rel="stylesheet" />
     <link href="views/assets/switcher/demo.css" rel="stylesheet" />
+
 
     <!------------->
     <!-- SCRIPTS -->
@@ -88,7 +91,7 @@ foreach ($routesArray as $key => $value) {
     <!-- https://sweetalert2.github.io/ -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Bootstrap Switch -->
-    <script src="views/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"></script>
 
     <?php if (!empty($routesArray[1]) && !isset($routesArray[2])) : ?>
 
@@ -189,6 +192,7 @@ foreach ($routesArray as $key => $value) {
     <!------------->
     <!-- SCRIPTS -->
     <!------------->
+
     <!--Internal  index js -->
     <script src="views/assets/js/index.js"></script>
     <!--Internal  Perfect-scrollbar js -->

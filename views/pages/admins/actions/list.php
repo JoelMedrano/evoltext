@@ -17,30 +17,26 @@ if (isset($_GET["start"]) && isset($_GET["end"])) {
 <input type="hidden" id="between2" value="<?php echo $between2 ?>">
 
 <div class="card">
-    <div class="card-header row d-flex justify-content-between align-items-center">
-        <h3 class="card-title">
-            <a class="btn btn-dark btn-sm" href="/admins/new">New Admin</a>
-        </h3>
-        <div class="card-tools">
-            <div class="d-flex align-items-center">
-                <div class="form-check form-switch" style="transform: scale(1);">
-                    <input class="form-check-input" type="checkbox" id="customSwitch" name="my-checkbox" onchange="reportActive(event)">
-                    <label class="form-check-label" for="customSwitch">Reports</label>
-                </div>
-                <div class="input-group">
-                    <button type="button" class="btn" id="daterange-btn">
-                        <i class="far fa-calendar-alt mr-2"></i>
-                        <?php if ($between1 < "2000") {
-                            echo "Start";
-                        } else {
-                            echo $between1;
-                        } ?> - <?php echo $between2 ?>
-                        <i class="fas fa-caret-down ml-2"></i>
-                    </button>
-                </div>
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <a class="btn btn-dark btn-sm" onclick="createCorrelativo('admins')">New Admin</a>
+            </div>
+            <div>
+                <button id="toggleReport" class="btn btn-primary btn-sm mr-3">Reportes</button>
+                <button type="button" class="btn" id="daterange-btn">
+                    <i class="far fa-calendar-alt mr-2"></i>
+                    <?php if ($between1 < "2000") {
+                        echo "Start";
+                    } else {
+                        echo $between1;
+                    } ?> - <?php echo $between2 ?>
+                    <i class="fas fa-caret-down ml-2"></i>
+                </button>
             </div>
         </div>
     </div>
+
 
     <!-- /.card-header -->
     <div class="card-body">
@@ -48,12 +44,13 @@ if (isset($_GET["start"]) && isset($_GET["end"])) {
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Picture</th>
-                    <th>Name</th>
+                    <th>Foto</th>
+                    <th>Nombre</th>
                     <th>Username</th>
-                    <th>Email</th>
-                    <th>Country</th>
-                    <th>City</th>
+                    <th>E-mail</th>
+                    <th>Ciudad</th>
+                    <th>Empresa</th>
+                    <th>Rol</th>
                     <th>Date</th>
                     <th>Actions</th>
                 </tr>

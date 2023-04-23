@@ -85,6 +85,32 @@ function validateJS(event, type) {
 }
 
 //* Activación de Bootstrap Switch
-$("input[data-bootstrap-switch]").each(function () {
-    $(this).bootstrapSwitch("state", $(this).prop("checked"));
+$(document).ready(function () {
+    $("input[data-bootstrap-switch]").each(function () {
+        $(this).bootstrapSwitch("state", $(this).prop("checked"));
+    });
 });
+
+//* Función para crear Url's
+function createCorrelativo(name) {
+    var codigo = name;
+    console.log("🚀 ~ file: forms.js:97 ~ createCorrelativo ~ codigo:", codigo);
+
+    var data = new FormData();
+    data.append("codigo", codigo);
+
+    $.ajax({
+        url: "ajax/ajax-correlative.php",
+        method: "POST",
+        data: data,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function (response) {
+            console.log(
+                "🚀 ~ file: forms.js ~ line 224 ~ createCorrelativo ~ response",
+                response
+            );
+        },
+    });
+}

@@ -2,3 +2,9 @@
 .dark-theme .main-sidebar-header .header-logo .desktop-dark {
     display: block !important;
 }
+
+/* check de stwitcer*/
+.form-check-input:checked {
+    background-color: #343a40 !important;
+    border-color: #343a40 !important;
+}

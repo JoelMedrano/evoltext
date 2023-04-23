@@ -1,0 +1,338 @@
+[
+    {
+        "id_state": 1,
+        "code_state": "01",
+        "description_state": "Activo",
+        "type_state": "success",
+        "icon_state": "fa-check-circle"
+    },
+    {
+        "id_state": 2,
+        "code_state": "02",
+        "description_state": "Agotado",
+        "type_state": "secondary",
+        "icon_state": "fa-times"
+    },
+    {
+        "id_state": 3,
+        "code_state": "03",
+        "description_state": "Aprobado",
+        "type_state": "primary",
+        "icon_state": "fa-check"
+    },
+    {
+        "id_state": 4,
+        "code_state": "04",
+        "description_state": "Archivado",
+        "type_state": "white",
+        "icon_state": "fa-archive"
+    },
+    {
+        "id_state": 5,
+        "code_state": "05",
+        "description_state": "Bloqueado",
+        "type_state": "danger",
+        "icon_state": "fa-lock"
+    },
+    {
+        "id_state": 6,
+        "code_state": "06",
+        "description_state": "Borrador",
+        "type_state": "white",
+        "icon_state": "fa-pencil-alt"
+    },
+    {
+        "id_state": 7,
+        "code_state": "07",
+        "description_state": "Cancelado",
+        "type_state": "danger",
+        "icon_state": "fa-ban"
+    },
+    {
+        "id_state": 8,
+        "code_state": "08",
+        "description_state": "Completado",
+        "type_state": "primary",
+        "icon_state": "fa-check-circle"
+    },
+    {
+        "id_state": 9,
+        "code_state": "09",
+        "description_state": "Confirmado",
+        "type_state": "info",
+        "icon_state": "fa-check-square"
+    },
+    {
+        "id_state": 10,
+        "code_state": "10",
+        "description_state": "Desconectado",
+        "type_state": "secondary",
+        "icon_state": "fa-plug"
+    },
+    {
+        "id_state": 11,
+        "code_state": "11",
+        "description_state": "Descontinuado",
+        "type_state": "danger",
+        "icon_state": "fa-minus-circle"
+    },
+    {
+        "id_state": 12,
+        "code_state": "12",
+        "description_state": "Deshabilitado",
+        "type_state": "danger",
+        "icon_state": "fa-exclamation-triangle"
+    },
+    {
+        "id_state": 13,
+        "code_state": "13",
+        "description_state": "Destacado",
+        "type_state": "warning",
+        "icon_state": "fa-star"
+    },
+    {
+        "id_state": 14,
+        "code_state": "14",
+        "description_state": "Devuelto",
+        "type_state": "secondary",
+        "icon_state": "fa-undo"
+    },
+    {
+        "id_state": 15,
+        "code_state": "15",
+        "description_state": "Disponible",
+        "type_state": "info",
+        "icon_state": "fa-check-circle"
+    },
+    {
+        "id_state": 16,
+        "code_state": "16",
+        "description_state": "Edición limitada",
+        "type_state": "warning",
+        "icon_state": "fa-tag"
+    },
+    {
+        "id_state": 17,
+        "code_state": "17",
+        "description_state": "Eliminado",
+        "type_state": "danger",
+        "icon_state": "fa-trash-alt"
+    },
+    {
+        "id_state": 18,
+        "code_state": "18",
+        "description_state": "En espera",
+        "type_state": "warning",
+        "icon_state": "fa-hourglass-half"
+    },
+    {
+        "id_state": 19,
+        "code_state": "19",
+        "description_state": "En Linea",
+        "type_state": "primary",
+        "icon_state": "fa-globe"
+    },
+    {
+        "id_state": 20,
+        "code_state": "20",
+        "description_state": "En mantenimiento",
+        "type_state": "warning",
+        "icon_state": "fa-wrench"
+    },
+    {
+        "id_state": 21,
+        "code_state": "21",
+        "description_state": "En oferta",
+        "type_state": "warning",
+        "icon_state": "fa-tags"
+    },
+    {
+        "id_state": 22,
+        "code_state": "22",
+        "description_state": "En preparación",
+        "type_state": "warning",
+        "icon_state": "fa-tasks"
+    },
+    {
+        "id_state": 23,
+        "code_state": "23",
+        "description_state": "En proceso",
+        "type_state": "warning",
+        "icon_state": "fa-spinner"
+    },
+    {
+        "id_state": 24,
+        "code_state": "24",
+        "description_state": "En producción",
+        "type_state": "warning",
+        "icon_state": "fa-cogs"
+    },
+    {
+        "id_state": 25,
+        "code_state": "25",
+        "description_state": "En tránsito",
+        "type_state": "warning",
+        "icon_state": "fa-truck"
+    },
+    {
+        "id_state": 26,
+        "code_state": "26",
+        "description_state": "Entregado",
+        "type_state": "primary",
+        "icon_state": "fa-box-check"
+    },
+    {
+        "id_state": 27,
+        "code_state": "27",
+        "description_state": "Enviado",
+        "type_state": "info",
+        "icon_state": "fa-shipping-fast"
+    },
+    {
+        "id_state": 28,
+        "code_state": "28",
+        "description_state": "Envío",
+        "type_state": "info",
+        "icon_state": "fa-truck-loading"
+    },
+    {
+        "id_state": 29,
+        "code_state": "29",
+        "description_state": "Error de pago",
+        "type_state": "danger",
+        "icon_state": "fa-times-circle"
+    },
+    {
+        "id_state": 30,
+        "code_state": "30",
+        "description_state": "Esperando pago",
+        "type_state": "warning",
+        "icon_state": "fa-clock"
+    },
+    {
+        "id_state": 31,
+        "code_state": "31",
+        "description_state": "Invitado",
+        "type_state": "info",
+        "icon_state": "fa-user-plus"
+    },
+    {
+        "id_state": 32,
+        "code_state": "32",
+        "description_state": "Nueva llegada",
+        "type_state": "primary",
+        "icon_state": "fa-plus-circle"
+    },
+    {
+        "id_state": 33,
+        "code_state": "33",
+        "description_state": "Parcialmente enviado",
+        "type_state": "warning",
+        "icon_state": "fa-minus-circle"
+    },
+    {
+        "id_state": 34,
+        "code_state": "34",
+        "description_state": "Pendiente",
+        "type_state": "warning",
+        "icon_state": "fa-hourglass"
+    },
+    {
+        "id_state": 35,
+        "code_state": "35",
+        "description_state": "Pendiente de reposición",
+        "type_state": "warning",
+        "icon_state": "fa-boxes"
+    },
+    {
+        "id_state": 36,
+        "code_state": "36",
+        "description_state": "Preparación",
+        "type_state": "warning",
+        "icon_state": "fa-clipboard-list"
+    },
+    {
+        "id_state": 37,
+        "code_state": "37",
+        "description_state": "Pre-venta",
+        "type_state": "info",
+        "icon_state": "fa-shopping-cart"
+    },
+    {
+        "id_state": 38,
+        "code_state": "38",
+        "description_state": "Publicado",
+        "type_state": "primary",
+        "icon_state": "fa-bullhorn"
+    },
+    {
+        "id_state": 39,
+        "code_state": "39",
+        "description_state": "Rechazado",
+        "type_state": "danger",
+        "icon_state": "fa-times-circle"
+    },
+    {
+        "id_state": 40,
+        "code_state": "40",
+        "description_state": "Reembolsado",
+        "type_state": "info",
+        "icon_state": "fa-undo-alt"
+    },
+    {
+        "id_state": 41,
+        "code_state": "41",
+        "description_state": "Reservado",
+        "type_state": "warning",
+        "icon_state": "fa-calendar-check"
+    },
+    {
+        "id_state": 42,
+        "code_state": "42",
+        "description_state": "Retirado",
+        "type_state": "info",
+        "icon_state": "fa-hand-paper"
+    },
+    {
+        "id_state": 43,
+        "code_state": "43",
+        "description_state": "Retrasado",
+        "type_state": "secondary",
+        "icon_state": "fa-clock"
+    },
+    {
+        "id_state": 44,
+        "code_state": "44",
+        "description_state": "Revisión pendiente",
+        "type_state": "warning",
+        "icon_state": "fa-eye"
+    },
+    {
+        "id_state": 45,
+        "code_state": "45",
+        "description_state": "Suspendido",
+        "type_state": "secondary",
+        "icon_state": "fa-pause-circle"
+    },
+    {
+        "id_state": 46,
+        "code_state": "46",
+        "description_state": "Vendido",
+        "type_state": "indigo",
+        "icon_state": "fa-handshake"
+    },
+    {
+        "id_state": 47,
+        "code_state": "47",
+        "description_state": "Inactivo",
+        "type_state": "danger",
+        "icon_state": "fa-times-circle"
+    },
+    {
+        "id_state": 48,
+        "code_state": "48",
+        "description_state": "Pendiente de aprobación",
+        "type_state": "warning",
+        "icon_state": "fa-hourglass-half"
+    }
+]
