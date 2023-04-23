@@ -8,8 +8,8 @@ class AdminsController
     {
         if (isset($_POST["loginEmail"])) {
             echo '<script>
-                // matPreloader("on");
-                // fncSweetAlert("loading", "Loading...", "");
+                matPreloader("on");
+                fncSweetAlert("loading", "Loading...", "");
             </script>';
 
             //*Validamos la sintaxis de los campos
@@ -55,9 +55,9 @@ class AdminsController
             } else {
 
                 echo '<script>
-						// fncFormatInputs();
-						// matPreloader("off");
-						// fncSweetAlert("close", "", "");				
+						fncFormatInputs();
+						matPreloader("off");
+						fncSweetAlert("close", "", "");				
 				</script> 
 
 				 <div class="alert alert-danger">Field syntax error</div>';

@@ -73,7 +73,7 @@ class CurlController
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://apiperu.net.pe/api/dni/' . $documento,
+            CURLOPT_URL => 'http://apiperu.net/api/dni/' . $documento,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -104,7 +104,7 @@ class CurlController
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://apiperu.net.pe/api/ruc/' . $documento,
+            CURLOPT_URL => 'http://apiperu.net/api/ruc/' . $documento,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

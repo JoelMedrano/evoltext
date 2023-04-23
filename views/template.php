@@ -30,6 +30,8 @@ foreach ($routesArray as $key => $value) {
     <!-- Title -->
     <title> Evoltext </title>
 
+    <base href="<?php echo TemplateController::path() ?>">
+
     <!------------->
     <!-- LINKS -->
     <!------------->
@@ -49,6 +51,10 @@ foreach ($routesArray as $key => $value) {
     <link rel="stylesheet" href="views/assets/custom/template/template.css">
     <!-- Material Preloader -->
     <link rel="stylesheet" href="views/assets/plugins/material-preloader/material-preloader.css">
+    <!-- INTERNAL Switcher css -->
+    <link href="views/assets/switcher/css/switcher.css" rel="stylesheet" />
+    <link href="views/assets/switcher/demo.css" rel="stylesheet" />
+
 
     <!------------->
     <!-- SCRIPTS -->
@@ -72,15 +78,9 @@ foreach ($routesArray as $key => $value) {
     <script src="views/assets/js/eva-icons.min.js"></script>
     <!-- Sticky js -->
     <script src="views/assets/js/sticky.js"></script>
-    <!--Internal  index js -->
-    <script src="views/assets/js/index.js"></script>
+
     <!-- Chart-circle js -->
     <script src="views/assets/js/circle-progress.min.js"></script>
-    <!-- Internal Data tables -->
-    <script src="views/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
-    <script src="views/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
-    <script src="views/assets/plugins/datatable/dataTables.responsive.min.js"></script>
-    <script src="views/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
     <!-- INTERNAL Select2 js -->
     <script src="views/assets/plugins/select2/js/select2.full.min.js"></script>
     <script src="views/assets/js/select2.js"></script>
@@ -90,6 +90,34 @@ foreach ($routesArray as $key => $value) {
     <!-- Sweet Alert -->
     <!-- https://sweetalert2.github.io/ -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Bootstrap Switch -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"></script>
+
+    <?php if (!empty($routesArray[1]) && !isset($routesArray[2])) : ?>
+
+        <?php if ($routesArray[1] == "admins") : ?>
+
+            <link rel="stylesheet" href="views/assets/plugins/daterangepicker/daterangepicker.css">
+
+            <script src="views/assets/plugins/daterangepicker/daterangepicker.js"></script>
+            <!-- Internal Data tables -->
+            <script src="views/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+            <script src="views/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+            <script src="views/assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+            <script src="views/assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+            <script src="views/assets/plugins/datatable/js/jszip.min.js"></script>
+            <script src="views/assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+            <script src="views/assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+            <script src="views/assets/plugins/datatable/js/buttons.html5.min.js"></script>
+            <script src="views/assets/plugins/datatable/js/buttons.print.min.js"></script>
+            <script src="views/assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+            <script src="views/assets/plugins/datatable/dataTables.responsive.min.js"></script>
+            <script src="views/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
+            <script src="views/assets/js/table-data.js"></script>
+
+        <?php endif ?>
+
+    <?php endif ?>
 
     <script src="views/assets/custom/alerts/alerts.js"></script>
 
@@ -120,18 +148,32 @@ foreach ($routesArray as $key => $value) {
         <!-- Page -->
         <div class="page">
 
+            <!-- main-header -->
+            <?php include "modules/navbar.php" ?>
+
+            <!-- main-sidebar -->
+            <?php include "modules/sidebar.php" ?>
+
             <div class="main-content app-content">
-                <!-- main-header -->
-                <?php include "modules/navbar.php" ?>
 
-                <!-- main-sidebar -->
-                <?php include "modules/sidebar.php" ?>
+                <?php
 
-                <!-- main-content -->
-                <?php include "pages/home/dashboard1.php" ?>
+                if (!empty($routesArray[1])) {
 
-                <?php //include "pages/404/404.php"
+                    if (
+                        $routesArray[1] == "admins" ||
+                        $routesArray[1] == "logout"
+                    ) {
+                        include "views/pages/" . $routesArray[1] . "/" . $routesArray[1] . ".php";
+                    } else {
+                        include "pages/404/404.php";
+                    }
+                } else {
+
+                    include "pages/home/dashboard1.php";
+                }
                 ?>
+
 
             </div>
 
@@ -150,6 +192,9 @@ foreach ($routesArray as $key => $value) {
     <!------------->
     <!-- SCRIPTS -->
     <!------------->
+
+    <!--Internal  index js -->
+    <script src="views/assets/js/index.js"></script>
     <!--Internal  Perfect-scrollbar js -->
     <script src="views/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="views/assets/plugins/perfect-scrollbar/p-scroll.js"></script>
@@ -162,6 +207,8 @@ foreach ($routesArray as $key => $value) {
     <script src="views/assets/js/custom.js"></script>
     <!-- Theme Color js -->
     <script src="views/assets/js/themecolor.js"></script>
+    <!-- Switcher js -->
+    <script src="views/assets/switcher/js/switcher.js"></script>
 
     <script src="views/assets/custom/forms/forms.js"></script>
 

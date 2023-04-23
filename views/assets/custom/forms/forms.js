@@ -1,6 +1,4 @@
-/*=============================================
-validar si es celular - tablet o celular
-=============================================*/
+//* validar si es celular - tablet o celular
 document.addEventListener("DOMContentLoaded", function () {
     const bodyElement = document.getElementById("mainBody");
 
@@ -21,9 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", updateBodyClass);
 });
 
-/*=============================================
-Validacion desde BOOTSTRAP 5
-=============================================*/
+//* Validacion desde BOOTSTRAP 5
 (function () {
     "use strict";
 
@@ -47,9 +43,7 @@ Validacion desde BOOTSTRAP 5
     });
 })();
 
-/*=============================================
-Función para validar formulario
-=============================================*/
+//* Función para validar formulario
 function validateJS(event, type) {
     var pattern;
 
@@ -88,4 +82,35 @@ function validateJS(event, type) {
             .children(".invalid-feedback")
             .html("Field syntax error");
     }
+}
+
+//* Activación de Bootstrap Switch
+$(document).ready(function () {
+    $("input[data-bootstrap-switch]").each(function () {
+        $(this).bootstrapSwitch("state", $(this).prop("checked"));
+    });
+});
+
+//* Función para crear Url's
+function createCorrelativo(name) {
+    var codigo = name;
+    console.log("🚀 ~ file: forms.js:97 ~ createCorrelativo ~ codigo:", codigo);
+
+    var data = new FormData();
+    data.append("codigo", codigo);
+
+    $.ajax({
+        url: "ajax/ajax-correlative.php",
+        method: "POST",
+        data: data,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function (response) {
+            console.log(
+                "🚀 ~ file: forms.js ~ line 224 ~ createCorrelativo ~ response",
+                response
+            );
+        },
+    });
 }
