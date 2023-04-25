@@ -85,7 +85,7 @@ class TemplateController
 			Configuramos la ruta del directorio donde se guardará la imagen
 			=============================================*/
 
-            $directory = strtolower("views/" . $folder);
+            $directory = strtolower("views/assets/" . $folder);
 
             /*=============================================
 			Preguntamos primero si no existe el directorio, para crearlo
@@ -191,5 +191,30 @@ class TemplateController
         } else {
             $response = CurlController::consultaRUC($documento);
         }
+    }
+
+    //* Sacar el codigo para la tabla
+    static public function codigoTabla($tabla)
+    {
+        //* Definir variables
+        $select = "actual_correlative";
+        $tamaño = 5;
+
+        //* Construir URL de solicitud
+        $url = "correlatives?select=id_correlative,{$select}&linkTo=code_correlative&equalTo={$tabla}";
+        $method = "GET";
+        $fields = array();
+
+        //* Realizar solicitud cURL y almacenar respuesta
+        $response = CurlController::request($url, $method, $fields);
+        //* Procesar respuesta y establecer $maxCode
+        if ($response->status == 200) {
+            $code = $response->results[0];
+            $maxCode = str_pad($code->actual_correlative, $tamaño, '0', STR_PAD_LEFT);
+        } else {
+            $maxCode = str_pad('1', $tamaño, '0', STR_PAD_LEFT);
+        }
+
+        return $maxCode;
     }
 }
