@@ -37,11 +37,9 @@ class ValidateController
             $response = CurlController::consultaRUC($documento);
         }
 
-        if ($response->success == "1") {
-
+        if (is_object($response) && isset($response->success) && $response->success == "1") {
             echo json_encode($response);
         } else {
-
             echo "error";
         }
     }

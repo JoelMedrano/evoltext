@@ -133,8 +133,19 @@ class DatatableController
                     $actions = "";
                 } else {
 
-
                     $picture_user = "<img src='" . TemplateController::returnImg($value->id_user, $value->picture_user, $value->method_user) . "' class='img-circle' style='width:30px'>";
+
+
+                    $roles = file_get_contents("../../views/assets/json/roles.json");
+                    $roles = json_decode($roles, true);
+
+                    foreach ($roles as $key => $valueR) {
+
+                        if ($value->rol_user == $valueR["code"]) {
+
+                            $rol_user = "<span class='badge bg-{$valueR["color"]}'>{$valueR["description"]}</span>";
+                        }
+                    }
 
                     $actions = "<a href='/admins/edit/" . base64_encode($value->id_user . "~" . $_GET["token"]) . "' class='btn btn-warning btn-sm mg-r-5 rounded-circle'>
                         <i class='fas fa-pencil-alt'></i>
@@ -153,7 +164,7 @@ class DatatableController
                 $email_user = $value->email_user;
                 $postal_user = $value->postal_user;
                 $id_company_user = $value->id_company_user;
-                $rol_user = $value->rol_user;
+                $rol_user = $rol_user;
                 $date_created_user = $value->date_created_user;
 
                 $dataJson .= '{ 

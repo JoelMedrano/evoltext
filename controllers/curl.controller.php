@@ -114,7 +114,7 @@ class CurlController
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json',
-                'Authorization: Bearer PUdDnC9j4bYdfEu5RGT7V0g3upwxayhnNMzoTN8DLqSE4XqKSA',
+                'Authorization: Bearer RFn95FIYnAIMEFW8rwKhldz0XhYB6jVWuVSdnV3n5hYioSxbff',
                 'Cookie: apiperu_session=kKLgLv76udrlQhzbuj3lk0RqNJ8FmRZRaHtrLgTP'
             ),
         ));

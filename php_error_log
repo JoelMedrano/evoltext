@@ -1,0 +1,10 @@
+[24-Apr-2023 17:07:53 America/Lima] PHP Notice:  Undefined property: stdClass::$ruc_company in C:\xampp\htdocs\evoltext\views\pages\admins\actions\new.php on line 191
+[25-Apr-2023 15:54:30 America/Lima] PHP Notice:  Undefined index: email in C:\xampp\htdocs\evoltext\controllers\admins.controller.php on line 81
+[25-Apr-2023 15:55:39 America/Lima] PHP Notice:  Undefined index: nameuser_user in C:\xampp\htdocs\evoltext\controllers\admins.controller.php on line 92
+[25-Apr-2023 16:07:19 America/Lima] PHP Warning:  mkdir(): No such file or directory in C:\xampp\htdocs\evoltext\controllers\template.controller.php on line 96
+[25-Apr-2023 16:07:19 America/Lima] PHP Warning:  imagepng(views/img/users/8/8.png): failed to open stream: No such file or directory in C:\xampp\htdocs\evoltext\controllers\template.controller.php on line 173
+[25-Apr-2023 16:07:19 America/Lima] PHP Notice:  Undefined index: admin in C:\xampp\htdocs\evoltext\controllers\admins.controller.php on line 134
+[25-Apr-2023 16:07:19 America/Lima] PHP Notice:  Trying to get property 'token_user' of non-object in C:\xampp\htdocs\evoltext\controllers\admins.controller.php on line 134
+[25-Apr-2023 16:08:51 America/Lima] PHP Notice:  Undefined index: admin in C:\xampp\htdocs\evoltext\controllers\admins.controller.php on line 134
+[25-Apr-2023 16:08:51 America/Lima] PHP Notice:  Trying to get property 'token_user' of non-object in C:\xampp\htdocs\evoltext\controllers\admins.controller.php on line 134
+[25-Apr-2023 16:34:54 America/Lima] PHP Notice:  Trying to get property 'status' of non-object in C:\xampp\htdocs\evoltext\controllers\admins.controller.php on line 102

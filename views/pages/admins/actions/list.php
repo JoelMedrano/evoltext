@@ -19,12 +19,14 @@ if (isset($_GET["start"]) && isset($_GET["end"])) {
 <div class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
-            <div>
-                <a class="btn btn-dark btn-sm" onclick="createCorrelativo('admins')">New Admin</a>
+            <div class="pd-10 flex-grow-1">
+                <a class="btn btn-dark btn-sm" href="/admins/new" onclick="createCorrelativo('admins')">New Admin</a>
             </div>
-            <div>
-                <button id="toggleReport" class="btn btn-primary btn-sm mr-3">Reportes</button>
-                <button type="button" class="btn" id="daterange-btn">
+            <div class="pd-10">
+                <button id="toggleReport" class="btn btn-primary btn-sm">Reportes</button>
+            </div>
+            <div class="pd-10">
+                <button type="button" class="btn btn-teal btn-sm" id="daterange-btn">
                     <i class="far fa-calendar-alt mr-2"></i>
                     <?php if ($between1 < "2000") {
                         echo "Start";
@@ -36,7 +38,6 @@ if (isset($_GET["start"]) && isset($_GET["end"])) {
             </div>
         </div>
     </div>
-
 
     <!-- /.card-header -->
     <div class="card-body">

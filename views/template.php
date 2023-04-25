@@ -54,7 +54,8 @@ foreach ($routesArray as $key => $value) {
     <!-- INTERNAL Switcher css -->
     <link href="views/assets/switcher/css/switcher.css" rel="stylesheet" />
     <link href="views/assets/switcher/demo.css" rel="stylesheet" />
-
+    <!-- Notie Alert -->
+    <link rel="stylesheet" href="views/assets/plugins/notie/notie.css">
 
     <!------------->
     <!-- SCRIPTS -->
@@ -78,7 +79,6 @@ foreach ($routesArray as $key => $value) {
     <script src="views/assets/js/eva-icons.min.js"></script>
     <!-- Sticky js -->
     <script src="views/assets/js/sticky.js"></script>
-
     <!-- Chart-circle js -->
     <script src="views/assets/js/circle-progress.min.js"></script>
     <!-- INTERNAL Select2 js -->
@@ -92,6 +92,10 @@ foreach ($routesArray as $key => $value) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Bootstrap Switch -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"></script>
+    <!-- Notie Alert -->
+    <!-- https://jaredreich.com/notie/ -->
+    <!-- https://github.com/jaredreich/notie -->
+    <script src="views/assets/plugins/notie/notie.min.js"></script>
 
     <?php if (!empty($routesArray[1]) && !isset($routesArray[2])) : ?>
 
