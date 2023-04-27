@@ -30,7 +30,13 @@ class AdminsController
                     //*Validamos que este activo
                     if ($response->results[0]->state_user != "46") {
 
-                        echo ' <div class="alert alert-danger">You do not have permissions to access</div>';
+                        echo '<script>
+                            fncFormatInputs();
+                            matPreloader("off");
+                            fncSweetAlert("close", "", "");                
+                        </script>
+                        
+                        <div class="alert alert-danger">You do not have permissions to access</div>';
                         return;
                     }
 

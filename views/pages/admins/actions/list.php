@@ -52,6 +52,7 @@ if (isset($_GET["start"]) && isset($_GET["end"])) {
                     <th>Ciudad</th>
                     <th>Empresa</th>
                     <th>Rol</th>
+                    <th>Estado</th>
                     <th>Date</th>
                     <th>Actions</th>
                 </tr>

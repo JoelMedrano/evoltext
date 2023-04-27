@@ -37,8 +37,9 @@ $codigo = TemplateController::codigoTabla("admins");
                         <select class="form-select select2" name="dis_user" id="dis_user" required>
                             <option value="">Seleccionar Documento</option>
                             <?php foreach ($dis as $key => $value) : ?>
-                                <option value="<?php echo $value["code"] ?>"><?php echo $value["code"] . ' - ' . $value["description"] ?></option>
+                                <option value="<?= $value["code"] ?>"><?= $value["code"] . ' - ' . $value["description"] ?></option>
                             <?php endforeach ?>
+
                         </select>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>

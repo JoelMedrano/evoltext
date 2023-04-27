@@ -16,13 +16,19 @@ function execDatatable(text) {
 
         var columns = [
             { data: "id_user" },
-            { data: "picture_user", orderable: false, search: false },
+            {
+                data: "picture_user",
+                className: "text-center",
+                orderable: false,
+                search: false,
+            },
             { data: "name_user" },
             { data: "username_user" },
             { data: "email_user" },
             { data: "postal_user" },
             { data: "id_company_user" },
-            { data: "rol_user" },
+            { data: "rol_user", className: "text-center" },
+            { data: "state_user" },
             { data: "date_created_user" },
             { data: "actions", orderable: false },
         ];
