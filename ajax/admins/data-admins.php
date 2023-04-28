@@ -135,12 +135,21 @@ class DatatableController
                         }
                     }
 
+                    if ($value->state_user == "46" || $value->state_user == "33") {
+                        $switch_state = '11';
+                        $check = "checked";
+                    } else {
+                        $switch_state = '46';
+                        $check = "unchecked";
+                    }
+
                     $actions = "<a href='/admins/edit/" . base64_encode("{$value->id_user}~{$_GET["token"]}") . "' class='btn btn-warning btn-sm mg-r-5 rounded-circle'>
                         <i class='fas fa-pencil-alt'></i>
                     </a>
-                    <a class='btn btn-danger btn-sm rounded-circle removeItem' idItem='" . base64_encode("{$value->id_user}~{$_GET["token"]}") . "' table='users' suffix='user' deleteFile='users/{$value->id_user}/{$value->picture_user}' page='admins'>
-                        <i class='fas fa-trash'></i>
-                    </a>";
+                    <label class='custom-switch ps-0'>                            
+                        <input type='checkbox' id='switch{$key}' {$check} onchange='changeState(this,{$switch_state})' table='users' idTable='{$value->id_user}' nameId='id_user' field='state_user' name='custom-switch-checkbox1' class='custom-switch-input'>
+                        <span class='custom-switch-indicator'></span>
+                    </label>";
 
                     $actions = TemplateController::htmlClean($actions);
                 }

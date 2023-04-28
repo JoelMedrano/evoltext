@@ -209,3 +209,36 @@ $("#daterange-btn").daterangepicker(
             end.format("YYYY-MM-DD");
     }
 );
+
+//* Cambiar estado del producto
+function changeState(element, state) {
+    var state = state;
+    var table = $(element).attr("table");
+    var id = $(element).attr("idTable");
+    var nameId = $(element).attr("nameId");
+    var field = $(element).attr("field");
+
+    var data = new FormData();
+    data.append("state", state);
+    data.append("table", table);
+    data.append("id", id);
+    data.append("nameId", nameId);
+    data.append("field", field);
+    data.append("token", localStorage.getItem("token_user"));
+
+    $.ajax({
+        url: "ajax/ajax-state.php",
+        method: "POST",
+        data: data,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function (response) {
+            if (response == 200) {
+                fncNotie(1, "the record was updated");
+            } else {
+                fncNotie(3, "Error updating registry");
+            }
+        },
+    });
+}

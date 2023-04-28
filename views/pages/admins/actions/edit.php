@@ -18,24 +18,16 @@ if (isset($routesArray[3])) {
 
             $admin = $response->results[0];
 
-            $dis_user = $admin->dis_user;
+            $dis = file_get_contents("views/assets/json/documentos_identidad_sunat.json");
+            $dis = json_decode($dis, true);
+            $dis_user = '';
 
-            if ($dis_user == null ||  $dis_user = "") {
-                $tdcode = "Seleccionar Documento";
-            } else {
-                $td = file_get_contents("views/assets/json/documentos_identidad_sunat.json");
-                $td = json_decode($td, true);
-
-                foreach ($td as $key => $value) {
-
-                    if ($value["code"] == $admin->dis_user) {
-                        $tdcode = $value["description"];
-                    }
+            foreach ($dis as $key => $value) {
+                if ($value["code"] == $admin->dis_user) {
+                    $dis_user = "{$admin->dis_user} - {$value["description"]}";
+                    break; // Salir del bucle una vez encontrado el valor correcto
                 }
             }
-            echo '<pre>';
-            print_r($tdcode);
-            echo '</pre>';
         } else {
 
             echo '<script>
@@ -58,11 +50,14 @@ if (isset($routesArray[3])) {
 
 <div class="card card-dark">
     <form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+
+        <input type="hidden" value="<?php echo $admin->id_user ?>" name="idAdmin">
+
         <div class="card-header">
             <?php
-            /* require_once "controllers/admins.controller.php";
-            $create = new AdminsController();
-            $create->create(); */
+            require_once "controllers/admins.controller.php";
+            $edit = new AdminsController();
+            $edit->edit($admin->id_user);
             ?>
             <div class="card-body form-group row">
                 <div class="col-lg-12 row">
@@ -82,18 +77,9 @@ if (isset($routesArray[3])) {
                     <!-- Tipo Documento -->
                     <div class="col-lg-3 form-group mg-b-10">
                         <label for="dis">Tipo Documento</label>
-                        <?php
-                        $dis = file_get_contents("views/assets/json/documentos_identidad_sunat.json");
-                        $dis = json_decode($dis, true);
-                        ?>
-                        <select class="form-select select2" name="dis_user" id="dis_user" required>
-                            <option value="">Seleccionar Documento</option>
-                            <?php foreach ($dis as $key => $value) : ?>
-                                <option value="<?= $value["code"] ?>" <?= ($admin->dis_user == $value["code"]) ? 'selected' : ''; ?>>
-                                    <?= "{$value["code"]} - {$value["description"]}" ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
+
+                        <input type="text" class="form-control" name="dis_user" value="<?php echo $dis_user ?>" required readonly>
+
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
@@ -154,7 +140,7 @@ if (isset($routesArray[3])) {
                     <div class="col-lg-3 form-group mg-b-10">
 
                         <label>Username</label>
-                        <input type="text" class="form-control" pattern="[-\\(\\)\\=\\%\\&\\$\\;\\_\\*\\/\\#\\?\\¿\\!\\¡\\:\\,\\.\\0-9a-zA-ZñÑáéíóúüÁÉÍÓÚÜ ]{1,}" name="username_user" id="username_user" value="<?php echo $admin->username_user ?>" required>
+                        <input type="text" class="form-control" pattern="[-\\(\\)\\=\\%\\&\\$\\;\\_\\*\\/\\#\\?\\¿\\!\\¡\\:\\,\\.\\0-9a-zA-ZñÑáéíóúüÁÉÍÓÚÜ ]{1,}" name="username_user" id="username_user" value="<?php echo $admin->username_user ?>" required readonly>
 
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
@@ -164,7 +150,7 @@ if (isset($routesArray[3])) {
                     <div class="col-lg-3 form-group mg-b-10">
 
                         <label>Password</label>
-                        <input type="password" class="form-control" pattern="[#\\=\\$\\;\\*\\_\\?\\¿\\!\\¡\\:\\.\\,\\0-9a-zA-Z]{1,}" onchange="validateJS(event,'pass')" name="password_user" id="password_user" required>
+                        <input type="password" class="form-control" pattern="[#\\=\\$\\;\\*\\_\\?\\¿\\!\\¡\\:\\.\\,\\0-9a-zA-Z]{1,}" onchange="validateJS(event,'pass')" name="password_user" id="password_user" placeholder="*******">
 
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
@@ -175,7 +161,7 @@ if (isset($routesArray[3])) {
 
                         <label>Email</label>
 
-                        <input type="email" class="form-control" pattern="[.a-zA-Z0-9_]+([.][.a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}" onchange="validateRepeat(event,'email','users','email_user')" name="email_user" name="email_user" required>
+                        <input type="email" class="form-control" pattern="[.a-zA-Z0-9_]+([.][.a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}" onchange="validateRepeat(event,'email','users','email_user')" name="email_user" name="email_user" value="<?php echo $admin->email_user ?>" required readonly>
 
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
@@ -192,7 +178,10 @@ if (isset($routesArray[3])) {
                         <select class="form-select select2" name="rol_user" id="rol_user" required>
                             <option value="">Seleccionar Rol</option>
                             <?php foreach ($rol as $key => $value) : ?>
-                                <option value="<?php echo $value["code"] ?>"><?php echo $value["code"] . ' - ' . $value["description"] ?></option>
+
+                                <option value="<?= $value["code"] ?>" <?= ($admin->rol_user == $value["code"]) ? 'selected' : ''; ?>>
+                                    <?= "{$value["code"]} - {$value['description']}" ?>
+                                </option>
                             <?php endforeach ?>
                         </select>
                         <div class="valid-feedback">Valid.</div>
@@ -204,7 +193,7 @@ if (isset($routesArray[3])) {
 
                         <label>Telefono 1</label>
 
-                        <input type="text" class="form-control" pattern="[.\\,\\0-9]{1,}" onchange="validateJS(event,'phone')" name="phone1_user" id="phone1_user">
+                        <input type="text" class="form-control" pattern="[.\\,\\0-9]{1,}" onchange="validateJS(event,'phone')" name="phone1_user" id="phone1_user" value="<?php echo $admin->phone1_user ?>">
 
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
@@ -216,7 +205,7 @@ if (isset($routesArray[3])) {
 
                         <label>Telefono 2</label>
 
-                        <input type="text" class="form-control" pattern="[.\\,\\0-9]{1,}" onchange="validateJS(event,'phone')" name="phone2_user" id="phone2_user">
+                        <input type="text" class="form-control" pattern="[.\\,\\0-9]{1,}" onchange="validateJS(event,'phone')" name="phone2_user" id="phone2_user" value="<?php echo $admin->phone2_user ?>">
 
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
@@ -243,7 +232,9 @@ if (isset($routesArray[3])) {
 
                             <?php foreach ($company as $key => $value) : ?>
 
-                                <option value="<?php echo $value->id_company ?>"><?php echo "{$value->document_company} - {$value->name_company}" ?></option>
+                                <option value="<?= $value->id_company ?>" <?= ($admin->id_company_user == $value->id_company) ? 'selected' : ''; ?>>
+                                    <?= "{$value->document_company} - {$value->name_company}" ?>
+                                </option>
 
                             <?php endforeach ?>
 
@@ -260,7 +251,7 @@ if (isset($routesArray[3])) {
 
                             <figure class="text-center py-3">
 
-                                <img src="<?php echo TemplateController::srcImg() ?>views/assets/img/users/default/default.png" class="img-fluid rounded-circle changePicture" style="width:150px">
+                                <img src="<?php echo TemplateController::returnImg($admin->id_user, $admin->picture_user, 'direct') ?>" class="img-fluid rounded-circle changePicture" style="width:150px">
 
                             </figure>
 
@@ -268,7 +259,7 @@ if (isset($routesArray[3])) {
 
                         <div class="custom-file">
 
-                            <input type="file" id="customFile" class="custom-file-input" accept="image/*" onchange="validateImageJS(event,'changePicture')" name="picture" required>
+                            <input type="file" id="customFile" class="custom-file-input" accept="image/*" onchange="validateImageJS(event,'changePicture')" name="picture">
 
                             <div class="valid-feedback">Valid.</div>
                             <div class="invalid-feedback">Please fill out this field.</div>

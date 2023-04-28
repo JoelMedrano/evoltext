@@ -35,7 +35,7 @@ class TemplateController
 
             if ($picture != null) {
 
-                return TemplateController::srcImg() . "views//assets/img/users/" . $id . "/" . $picture;
+                return TemplateController::srcImg() . "views/assets/img/users/" . $id . "/" . $picture;
             } else {
 
                 return TemplateController::srcImg() . "views/assets/img/users/default/default.png";
