@@ -263,13 +263,13 @@
                             </form>
                         </li>
                         <li class="dropdown main-profile-menu nav nav-item nav-link ps-lg-2">
-                            <a class="new nav-link profile-user d-flex" href="" data-bs-toggle="dropdown"><img alt="" src="views/assets/img/faces/2.jpg" class=""></a>
+                            <a class="new nav-link profile-user d-flex" href="" data-bs-toggle="dropdown"><img alt="" src="<?php echo TemplateController::returnImg($_SESSION["user"]->id_user, $_SESSION["user"]->picture_user, $_SESSION["user"]->method_user) ?>" class=""></a>
                             <div class="dropdown-menu">
                                 <div class="menu-header-content p-3 border-bottom">
                                     <div class="d-flex wd-100p">
-                                        <div class="main-img-user"><img alt="" src="views/assets/img/faces/2.jpg" class=""></div>
+                                        <div class="main-img-user"><img alt="" src="<?php echo TemplateController::returnImg($_SESSION["user"]->id_user, $_SESSION["user"]->picture_user, $_SESSION["user"]->method_user) ?>" class=""></div>
                                         <div class="ms-3 my-auto">
-                                            <h6 class="tx-15 font-weight-semibold mb-0">Teri Dactyl</h6><span class="dropdown-title-text subtext op-6  tx-12">Premium Member</span>
+                                            <h6 class="tx-15 font-weight-semibold mb-0"><?php echo $_SESSION["user"]->name_user ?></h6><span class="dropdown-title-text subtext op-6  tx-12">Premium Member</span>
                                         </div>
                                     </div>
                                 </div>

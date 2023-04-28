@@ -40,7 +40,7 @@
 
             if ($routesArray[2] == "new" || $routesArray[2] == "edit") {
 
-                include "actions/new.php";
+                include "actions/" . $routesArray[2] . ".php";
             }
         } else {
 

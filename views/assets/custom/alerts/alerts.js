@@ -6,7 +6,7 @@ function fncNotie(type, text) {
     notie.alert({
         type: type,
         text: text,
-        time: 10,
+        time: 3,
     });
 }
 
