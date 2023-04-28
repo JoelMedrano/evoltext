@@ -30,6 +30,8 @@ foreach ($routesArray as $key => $value) {
     <!-- Title -->
     <title> Evoltext </title>
 
+    <base href="<?php echo TemplateController::path() ?>">
+
     <!------------->
     <!-- LINKS -->
     <!------------->
@@ -47,6 +49,13 @@ foreach ($routesArray as $key => $value) {
     <link href="views/assets/css/skin-modes.css" rel="stylesheet" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="views/assets/custom/template/template.css">
+    <!-- Material Preloader -->
+    <link rel="stylesheet" href="views/assets/plugins/material-preloader/material-preloader.css">
+    <!-- INTERNAL Switcher css -->
+    <link href="views/assets/switcher/css/switcher.css" rel="stylesheet" />
+    <link href="views/assets/switcher/demo.css" rel="stylesheet" />
+    <!-- Notie Alert -->
+    <link rel="stylesheet" href="views/assets/plugins/notie/notie.css">
 
     <!------------->
     <!-- SCRIPTS -->
@@ -70,56 +79,116 @@ foreach ($routesArray as $key => $value) {
     <script src="views/assets/js/eva-icons.min.js"></script>
     <!-- Sticky js -->
     <script src="views/assets/js/sticky.js"></script>
-    <!--Internal  index js -->
-    <script src="views/assets/js/index.js"></script>
     <!-- Chart-circle js -->
     <script src="views/assets/js/circle-progress.min.js"></script>
-    <!-- Internal Data tables -->
-    <script src="views/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
-    <script src="views/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
-    <script src="views/assets/plugins/datatable/dataTables.responsive.min.js"></script>
-    <script src="views/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
     <!-- INTERNAL Select2 js -->
     <script src="views/assets/plugins/select2/js/select2.full.min.js"></script>
     <script src="views/assets/js/select2.js"></script>
+    <!-- Material Preloader -->
+    <!-- https://www.jqueryscript.net/loading/Google-Inbox-Style-Linear-Preloader-Plugin-with-jQuery-CSS3.html -->
+    <script src="views/assets/plugins/material-preloader/material-preloader.js"></script>
+    <!-- Sweet Alert -->
+    <!-- https://sweetalert2.github.io/ -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Bootstrap Switch -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"></script>
+    <!-- Notie Alert -->
+    <!-- https://jaredreich.com/notie/ -->
+    <!-- https://github.com/jaredreich/notie -->
+    <script src="views/assets/plugins/notie/notie.min.js"></script>
+
+    <?php if (!empty($routesArray[1]) && !isset($routesArray[2])) : ?>
+
+        <?php if ($routesArray[1] == "admins") : ?>
+
+            <link rel="stylesheet" href="views/assets/plugins/daterangepicker/daterangepicker.css">
+
+            <script src="views/assets/plugins/daterangepicker/daterangepicker.js"></script>
+            <!-- Internal Data tables -->
+            <script src="views/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+            <script src="views/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+            <script src="views/assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+            <script src="views/assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+            <script src="views/assets/plugins/datatable/js/jszip.min.js"></script>
+            <script src="views/assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+            <script src="views/assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+            <script src="views/assets/plugins/datatable/js/buttons.html5.min.js"></script>
+            <script src="views/assets/plugins/datatable/js/buttons.print.min.js"></script>
+            <script src="views/assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+            <script src="views/assets/plugins/datatable/dataTables.responsive.min.js"></script>
+            <script src="views/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
+            <script src="views/assets/js/table-data.js"></script>
+
+        <?php endif ?>
+
+    <?php endif ?>
+
+    <script src="views/assets/custom/alerts/alerts.js"></script>
 
 </head>
 
 <body id="mainBody" class="ltr main-body app sidebar-mini">
 
+    <?php
+
+    if (!isset($_SESSION["user"])) {
+
+        include "pages/login/login.php";
+
+        echo '</body></head>';
+
+        return;
+    }
+
+    ?>
+
     <!-- Loader -->
     <div id="global-loader">
         <img src="views/assets/img/loader.svg" class="loader-img" alt="Loader">
     </div>
-    <!-- /Loader -->
 
-    <?php //include "pages/login/login.php"
-    ?>
+    <?php if (isset($_SESSION["user"])) : ?>
 
-    <!-- Page -->
-    <div class="page">
+        <!-- Page -->
+        <div class="page">
 
-        <div class="main-content app-content">
             <!-- main-header -->
             <?php include "modules/navbar.php" ?>
 
             <!-- main-sidebar -->
             <?php include "modules/sidebar.php" ?>
 
-            <!-- main-content -->
-            <?php include "pages/home/dashboard1.php" ?>
+            <div class="main-content app-content">
 
-            <?php //include "pages/404/404.php"
+                <?php
+
+                if (!empty($routesArray[1])) {
+
+                    if (
+                        $routesArray[1] == "admins" ||
+                        $routesArray[1] == "logout"
+                    ) {
+                        include "views/pages/" . $routesArray[1] . "/" . $routesArray[1] . ".php";
+                    } else {
+                        include "pages/404/404.php";
+                    }
+                } else {
+
+                    include "pages/home/dashboard1.php";
+                }
+                ?>
+
+
+            </div>
+
+            <!-- Footer opened -->
+            <?php include "modules/footer.php"
             ?>
 
         </div>
 
-        <!-- Footer opened -->
-        <?php include "modules/footer.php"
-        ?>
+    <?php endif ?>
 
-    </div>
-    <!-- End Page -->
 
     <!-- Back-to-top -->
     <a href="#top" id="back-to-top"><i class="las la-arrow-up"></i></a>
@@ -127,6 +196,9 @@ foreach ($routesArray as $key => $value) {
     <!------------->
     <!-- SCRIPTS -->
     <!------------->
+
+    <!--Internal  index js -->
+    <script src="views/assets/js/index.js"></script>
     <!--Internal  Perfect-scrollbar js -->
     <script src="views/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="views/assets/plugins/perfect-scrollbar/p-scroll.js"></script>
@@ -139,6 +211,8 @@ foreach ($routesArray as $key => $value) {
     <script src="views/assets/js/custom.js"></script>
     <!-- Theme Color js -->
     <script src="views/assets/js/themecolor.js"></script>
+    <!-- Switcher js -->
+    <script src="views/assets/switcher/js/switcher.js"></script>
 
     <script src="views/assets/custom/forms/forms.js"></script>
 

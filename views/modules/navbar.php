@@ -3,8 +3,8 @@
         <div class="main-header-left ">
             <div class="responsive-logo">
                 <a href="index.html" class="header-logo">
-                    <img src="assets/img/brand/logo.png" class="mobile-logo logo-1" alt="logo">
-                    <img src="assets/img/brand/logo-white.png" class="mobile-logo dark-logo-1" alt="logo">
+                    <img src="views/assets/img/brand/logo.png" class="mobile-logo logo-1" alt="logo">
+                    <img src="views/assets/img/brand/logo-white.png" class="mobile-logo dark-logo-1" alt="logo">
                 </a>
             </div>
             <div class="app-sidebar__toggle" data-bs-toggle="sidebar">
@@ -13,8 +13,8 @@
             </div>
             <div class="logo-horizontal">
                 <a href="index.html" class="header-logo">
-                    <img src="assets/img/brand/logo.png" class="mobile-logo logo-1" alt="logo">
-                    <img src="assets/img/brand/logo-white.png" class="mobile-logo dark-logo-1" alt="logo">
+                    <img src="views/assets/img/brand/logo.png" class="mobile-logo logo-1" alt="logo">
+                    <img src="views/assets/img/brand/logo-white.png" class="mobile-logo dark-logo-1" alt="logo">
                 </a>
             </div>
         </div>
@@ -55,7 +55,7 @@
                                     <div class="d-flex border-bottom main-cart-item">
                                         <div>
                                             <a class="d-flex p-3" href="product-details.html">
-                                                <div class="drop-img cover-image" data-image-src="assets/img/ecommerce/05.jpg">
+                                                <div class="drop-img cover-image" data-image-src="views/assets/img/ecommerce/05.jpg">
                                                 </div>
                                                 <div class="ms-3 text-start">
                                                     <h5 class="mb-1 text-muted tx-13">Lence Camera</h5>
@@ -72,7 +72,7 @@
                                     <div class="d-flex border-bottom main-cart-item">
                                         <div>
                                             <a class="d-flex p-3" href="product-details.html">
-                                                <div class="drop-img cover-image" data-image-src="assets/img/ecommerce/02.jpg">
+                                                <div class="drop-img cover-image" data-image-src="views/assets/img/ecommerce/02.jpg">
                                                 </div>
                                                 <div class="ms-3 text-start">
                                                     <h5 class="mb-1 text-muted tx-13">White Ear Buds</h5>
@@ -89,7 +89,7 @@
                                     <div class="d-flex border-bottom main-cart-item">
                                         <div>
                                             <a class="d-flex p-3" href="product-details.html">
-                                                <div class="drop-img cover-image" data-image-src="assets/img/ecommerce/12.jpg">
+                                                <div class="drop-img cover-image" data-image-src="views/assets/img/ecommerce/12.jpg">
                                                 </div>
                                                 <div class="ms-3 text-start">
                                                     <h5 class="mb-1 text-muted tx-13">Branded Black Headset</h5>
@@ -106,7 +106,7 @@
                                     <div class="d-flex border-bottom main-cart-item">
                                         <div>
                                             <a class="d-flex p-3" href="product-details.html">
-                                                <div class="drop-img cover-image" data-image-src="assets/img/ecommerce/06.jpg">
+                                                <div class="drop-img cover-image" data-image-src="views/assets/img/ecommerce/06.jpg">
                                                 </div>
                                                 <div class="ms-3 text-start">
                                                     <h5 class="mb-1 text-muted tx-13">Glass Decor Item</h5>
@@ -123,7 +123,7 @@
                                     <div class="d-flex border-bottom main-cart-item">
                                         <div>
                                             <a class="d-flex p-3" href="product-details.html">
-                                                <div class="drop-img cover-image" data-image-src="assets/img/ecommerce/04.jpg">
+                                                <div class="drop-img cover-image" data-image-src="views/assets/img/ecommerce/04.jpg">
                                                 </div>
                                                 <div class="ms-3 text-start">
                                                     <h5 class="mb-1 text-muted tx-13">Pink Teddy Bear</h5>
@@ -263,13 +263,13 @@
                             </form>
                         </li>
                         <li class="dropdown main-profile-menu nav nav-item nav-link ps-lg-2">
-                            <a class="new nav-link profile-user d-flex" href="" data-bs-toggle="dropdown"><img alt="" src="assets/img/faces/2.jpg" class=""></a>
+                            <a class="new nav-link profile-user d-flex" href="" data-bs-toggle="dropdown"><img alt="" src="<?php echo TemplateController::returnImg($_SESSION["user"]->id_user, $_SESSION["user"]->picture_user, $_SESSION["user"]->method_user) ?>" class=""></a>
                             <div class="dropdown-menu">
                                 <div class="menu-header-content p-3 border-bottom">
                                     <div class="d-flex wd-100p">
-                                        <div class="main-img-user"><img alt="" src="assets/img/faces/2.jpg" class=""></div>
+                                        <div class="main-img-user"><img alt="" src="<?php echo TemplateController::returnImg($_SESSION["user"]->id_user, $_SESSION["user"]->picture_user, $_SESSION["user"]->method_user) ?>" class=""></div>
                                         <div class="ms-3 my-auto">
-                                            <h6 class="tx-15 font-weight-semibold mb-0">Teri Dactyl</h6><span class="dropdown-title-text subtext op-6  tx-12">Premium Member</span>
+                                            <h6 class="tx-15 font-weight-semibold mb-0"><?php echo $_SESSION["user"]->name_user ?></h6><span class="dropdown-title-text subtext op-6  tx-12">Premium Member</span>
                                         </div>
                                     </div>
                                 </div>
@@ -278,7 +278,7 @@
                                 <a class="dropdown-item" href="mail-read.html"><i class="far fa-envelope "></i>Inbox</a>
                                 <a class="dropdown-item" href="mail.html"><i class="far fa-comment-dots"></i>Messages</a>
                                 <a class="dropdown-item" href="mail-settings.html"><i class="far fa-sun"></i> Settings</a>
-                                <a class="dropdown-item" href="signup.html"><i class="far fa-arrow-alt-circle-left"></i> Sign Out</a>
+                                <a class="dropdown-item" href="logout"><i class="far fa-arrow-alt-circle-left"></i> Sign Out</a>
                             </div>
                         </li>
                     </ul>

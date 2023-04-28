@@ -1,0 +1,10 @@
+[
+    { "code": "0", "description": "Doc.trib.no.dom.sin.ruc" },
+    { "code": "1", "description": "DNI" },
+    { "code": "4", "description": "Carnet de extranjería" },
+    { "code": "6", "description": "RUC" },
+    { "code": "7", "description": "Pasaporte" },
+    { "code": "A", "description": "Cédula Diplomática de Identidad" },
+    { "code": "B", "description": "Documento de Identidad Extranjero" },
+    { "code": "C", "description": "Otros" }
+]

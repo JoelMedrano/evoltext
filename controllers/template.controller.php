@@ -35,10 +35,10 @@ class TemplateController
 
             if ($picture != null) {
 
-                return TemplateController::srcImg() . "views/img/users/" . $id . "/" . $picture;
+                return TemplateController::srcImg() . "views/assets/img/users/" . $id . "/" . $picture;
             } else {
 
-                return TemplateController::srcImg() . "views/img/users/default/default.png";
+                return TemplateController::srcImg() . "views/assets/img/users/default/default.png";
             }
         } else {
 
@@ -85,7 +85,7 @@ class TemplateController
 			Configuramos la ruta del directorio donde se guardará la imagen
 			=============================================*/
 
-            $directory = strtolower("views/" . $folder);
+            $directory = strtolower("views/assets/" . $folder);
 
             /*=============================================
 			Preguntamos primero si no existe el directorio, para crearlo
@@ -190,6 +190,57 @@ class TemplateController
             $response = CurlController::consultaDNI($documento);
         } else {
             $response = CurlController::consultaRUC($documento);
+        }
+    }
+
+    //* Sacar el codigo para la tabla
+    static public function codigoTabla($tabla)
+    {
+        //* Definir variables
+        $select = "actual_correlative";
+        $tamaño = 5;
+
+        //* Construir URL de solicitud
+        $url = "correlatives?select=id_correlative,{$select}&linkTo=code_correlative&equalTo={$tabla}";
+        $method = "GET";
+        $fields = array();
+
+        //* Realizar solicitud cURL y almacenar respuesta
+        $response = CurlController::request($url, $method, $fields);
+        //* Procesar respuesta y establecer $maxCode
+        if ($response->status == 200) {
+            $code = $response->results[0];
+            $maxCode = str_pad($code->actual_correlative, $tamaño, '0', STR_PAD_LEFT);
+        } else {
+            $maxCode = str_pad('1', $tamaño, '0', STR_PAD_LEFT);
+        }
+
+        return $maxCode;
+    }
+
+    //* obtener localicaion del usuario
+    static public function getLocationInfo($ip, $apiKey)
+    {
+        $url = "https://api.ipgeolocation.io/ipgeo?apiKey={$apiKey}&ip={$ip}";
+        $response = file_get_contents($url);
+        $data = json_decode($response, true);
+        return $data;
+    }
+
+    static public function getUserIP()
+    {
+        if (isset($_SERVER["HTTP_CLIENT_IP"])) {
+            return $_SERVER["HTTP_CLIENT_IP"];
+        } elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
+            return $_SERVER["HTTP_X_FORWARDED_FOR"];
+        } elseif (isset($_SERVER["HTTP_X_FORWARDED"])) {
+            return $_SERVER["HTTP_X_FORWARDED"];
+        } elseif (isset($_SERVER["HTTP_FORWARDED_FOR"])) {
+            return $_SERVER["HTTP_FORWARDED_FOR"];
+        } elseif (isset($_SERVER["HTTP_FORWARDED"])) {
+            return $_SERVER["HTTP_FORWARDED"];
+        } else {
+            return $_SERVER["REMOTE_ADDR"];
         }
     }
 }

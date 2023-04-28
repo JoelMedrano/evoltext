@@ -1,0 +1,27 @@
+[
+    {
+        "code": "1",
+        "description": "Master",
+        "color": "indigo"
+    },
+    {
+        "code": "2",
+        "description": "Admin",
+        "color": "purple"
+    },
+    {
+        "code": "3",
+        "description": "Seller",
+        "color": "pink"
+    },
+    {
+        "code": "4",
+        "description": "Client",
+        "color": "orange"
+    },
+    {
+        "code": "5",
+        "description": "Other",
+        "color": "teal"
+    }
+]

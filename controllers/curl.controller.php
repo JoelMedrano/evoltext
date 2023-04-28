@@ -73,7 +73,7 @@ class CurlController
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://apiperu.net.pe/api/dni/' . $documento,
+            CURLOPT_URL => 'http://apiperu.net/api/dni/' . $documento,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -104,7 +104,7 @@ class CurlController
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://apiperu.net.pe/api/ruc/' . $documento,
+            CURLOPT_URL => 'http://apiperu.net/api/ruc/' . $documento,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -114,7 +114,7 @@ class CurlController
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json',
-                'Authorization: Bearer PUdDnC9j4bYdfEu5RGT7V0g3upwxayhnNMzoTN8DLqSE4XqKSA',
+                'Authorization: Bearer RFn95FIYnAIMEFW8rwKhldz0XhYB6jVWuVSdnV3n5hYioSxbff',
                 'Cookie: apiperu_session=kKLgLv76udrlQhzbuj3lk0RqNJ8FmRZRaHtrLgTP'
             ),
         ));
