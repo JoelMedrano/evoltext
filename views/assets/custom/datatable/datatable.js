@@ -1,9 +1,48 @@
 var page;
 
 function execDatatable(text) {
-    //*Validamos la tabla administradores
-
+    //* Validamos la tabla administradores
     if ($(".tableAdmins").length > 0) {
+        var url =
+            "ajax/admins/data-admins.php?text=" +
+            text +
+            "&between1=" +
+            $("#between1").val() +
+            "&between2=" +
+            $("#between2").val() +
+            "&token=" +
+            localStorage.getItem("token_user");
+
+        var columns = [
+            { data: "id_user" },
+            {
+                data: "picture_user",
+                className: "text-center",
+                orderable: false,
+                search: false,
+            },
+            { data: "name_user" },
+            { data: "username_user" },
+            { data: "email_user" },
+            { data: "postal_user" },
+            { data: "id_company_user" },
+            { data: "rol_user", className: "text-center" },
+            { data: "state_user" },
+            { data: "date_created_user" },
+            { data: "actions", orderable: false },
+        ];
+
+        var order = [[0, "desc"]];
+        var aLengthMenu = [
+            [20, 50, 100, 500, 1000],
+            [20, 50, 100, 500, 1000],
+        ];
+
+        page = "admins";
+    }
+
+    //*Validamos la tabla administradores
+    if ($(".tableCompanies").length > 0) {
         var url =
             "ajax/admins/data-admins.php?text=" +
             text +

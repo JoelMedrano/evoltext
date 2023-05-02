@@ -1,0 +1,94 @@
+{
+    "plans": [
+        {
+            "code": "0001",
+            "name": "Gratis",
+            "description": "Exclusivo para clientes que quieren tener a la mano toda la lista de emrpresas y marcas disponibles",
+            "features": [
+                "Acceso a la plataforma",
+                "Soporte por correo electrónico",
+                "Gestión básica de proyectos"
+            ],
+            "price": 0,
+            "currency": "USD",
+            "limitations": [
+                {
+                    "max_clients": 5,
+                    "max_orders": 10,
+                    "max_users": "5 GB"
+                }
+            ],
+            "trial": "14 días",
+            "annual_discount": "10%"
+        },
+        {
+            "code": "0002",
+            "name": "Básico",
+            "description": "Ideal para pequeñas empresas o individuos que requieren funcionalidades básicas.",
+            "features": [
+                "Acceso a la plataforma",
+                "Soporte por correo electrónico",
+                "Gestión básica de proyectos"
+            ],
+            "price": 10,
+            "currency": "USD",
+            "limitations": [
+                {
+                    "max_clients": 5,
+                    "max_orders": 10,
+                    "max_users": "5 GB"
+                }
+            ],
+            "trial": "14 días",
+            "annual_discount": "10%"
+        },
+        {
+            "code": "0003",
+            "name": "Pro",
+            "description": "Perfecto para empresas en crecimiento que necesitan más capacidad y funciones avanzadas.",
+            "features": [
+                "Acceso a la plataforma",
+                "Soporte prioritario",
+                "Gestión avanzada de proyectos",
+                "Integraciones con aplicaciones de terceros"
+            ],
+            "price": 25,
+            "currency": "USD",
+            "limitations": [
+                {
+                    "max_clients": 25,
+                    "max_orders": 50,
+                    "max_users": "50 GB"
+                }
+            ],
+            "trial": "14 días",
+            "annual_discount": "15%",
+            "training": "Capacitación básica"
+        },
+        {
+            "code": "0004",
+            "name": "Enterprise",
+            "description": "Diseñado para grandes organizaciones que requieren soluciones personalizadas y de alta capacidad.",
+            "features": [
+                "Acceso a la plataforma",
+                "Soporte dedicado",
+                "Gestión avanzada de proyectos",
+                "Integraciones con aplicaciones de terceros",
+                "Personalización y ajuste a medida",
+                "Capacitación y asesoramiento"
+            ],
+            "price": "Contactar para cotización",
+            "currency": "USD",
+            "limitations": [
+                {
+                    "max_clients": "Ilimitado",
+                    "max_orders": "Ilimitado",
+                    "max_users": "Ilimitado"
+                }
+            ],
+            "trial": "Consultar",
+            "annual_discount": "Negociable",
+            "training": "Capacitación avanzada y consultoría"
+        }
+    ]
+}

@@ -166,6 +166,7 @@ foreach ($routesArray as $key => $value) {
 
                     if (
                         $routesArray[1] == "admins" ||
+                        $routesArray[1] == "companies" ||
                         $routesArray[1] == "logout"
                     ) {
                         include "views/pages/" . $routesArray[1] . "/" . $routesArray[1] . ".php";
